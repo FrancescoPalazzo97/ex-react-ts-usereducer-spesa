@@ -1,9 +1,11 @@
 import { createContext } from "react";
 import type { GlobalContextType, Products } from "../types";
+import { useCart } from "../hooks/useCart";
 
 export const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
 export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
+    const cartData = useCart();
 
     const products: Products = [
         { name: 'Mela', price: 0.5 },
@@ -13,7 +15,8 @@ export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
     ];
 
     const value: GlobalContextType = {
-        products
+        products,
+        cartData
     };
 
     return (
