@@ -1,0 +1,24 @@
+import { createContext } from "react";
+import type { GlobalContextType, Products } from "../types";
+
+export const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
+
+export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
+
+    const products: Products = [
+        { name: 'Mela', price: 0.5 },
+        { name: 'Pane', price: 1.2 },
+        { name: 'Latte', price: 1.0 },
+        { name: 'Pasta', price: 0.7 },
+    ];
+
+    const value: GlobalContextType = {
+        products
+    };
+
+    return (
+        <GlobalContext.Provider value={value}>
+            {children}
+        </GlobalContext.Provider>
+    );
+};
