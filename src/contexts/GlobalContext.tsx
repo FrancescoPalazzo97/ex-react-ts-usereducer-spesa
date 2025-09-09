@@ -5,8 +5,8 @@ import { useCart } from "../hooks/useCart";
 export const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
 export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
-    const [cart, setCart, addToCart, isInCart] = useCart();
-    const cartData = { cart, setCart, addToCart, isInCart };
+    const [cart, addToCart, removeFromCart, updateQuantity] = useCart();
+    const cartData = { cart, addToCart, removeFromCart, updateQuantity };
 
     const products: Products = [
         { name: 'Mela', price: 0.5 },

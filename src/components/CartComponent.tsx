@@ -13,13 +13,16 @@ export const CartComponent = () => {
             {cart.length === 0
                 ? <p>Il carrello è vuoto.</p>
                 : (
-                    <ul className="flex flex-wrap gap-4 justify-center">
-                        {cart.map((product: cartProduct) => (
-                            <li key={product.name}>
-                                <ProductCard product={product} />
-                            </li>
-                        ))}
-                    </ul>
+                    <>
+                        <ul className="flex flex-wrap gap-4 justify-center">
+                            {cart.map((product: cartProduct) => (
+                                <li key={product.name}>
+                                    <ProductCard product={product} />
+                                </li>
+                            ))}
+                        </ul>
+                        <h3 className="text-lg font-semibold mt-4">Totale da pagare: {cart.reduce((acc, p) => acc + p.price * p.quantity, 0).toFixed(2)}€</h3>
+                    </>
                 )}
         </div>
     )

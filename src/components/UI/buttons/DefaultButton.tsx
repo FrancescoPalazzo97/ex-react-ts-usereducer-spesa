@@ -1,17 +1,19 @@
+import type React from "react";
+
 type ButtonProps = {
-    text: string;
-    color?: string;
+    text: React.ReactNode;
+    className?: string;
     onClick?: () => void;
 }
 
 export const DefaultButton = ({
     text = 'Click me',
-    color = 'emerald',
+    className = '',
     onClick = () => { }
 }: ButtonProps) => {
     return (
         <button
-            className={`bg-${color}-500 text-white py-1 px-2 rounded mt-2 hover:bg-${color}-600 transition-colors`}
+            className={`py-1 px-2 rounded mt-2 transition-colors ${className}`}
             onClick={onClick}
         >
             {text}

@@ -6,14 +6,14 @@ export type Cart = cartProduct[];
 
 export type UseCartReturnType = [
     Cart,
-    React.Dispatch<React.SetStateAction<Cart>>,
-    (product: Cart[0]) => void,
-    (product: Cart[0]) => boolean
+    (product: Product) => void,
+    (product: cartProduct) => void,
+    (product: Product | cartProduct, value?: number, isAbsolute?: boolean) => void
 ];
 
 export type CartData = {
     cart: Cart;
-    setCart: React.Dispatch<React.SetStateAction<Cart>>;
     addToCart: (product: Product) => void;
-    isInCart: (product: Product) => boolean;
+    removeFromCart: (product: cartProduct) => void;
+    updateQuantity: (product: Product | cartProduct, value?: number, isAbsolute?: boolean) => void;
 }
