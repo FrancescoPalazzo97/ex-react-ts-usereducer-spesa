@@ -10,3 +10,10 @@ export type UseCartReturnType = [
     (product: Cart[0]) => void,
     (product: Cart[0]) => boolean
 ];
+
+export type CartData = {
+    cart: Cart;
+    setCart: React.Dispatch<React.SetStateAction<Cart>>;
+    addToCart: (product: Product) => void;
+    isInCart: (product: Product) => boolean;
+}

@@ -1,6 +1,6 @@
-import type { Products, UseCartReturnType } from "./";
+import type { Products, CartData } from "./";
 
 export type GlobalContextType = {
     products: Products;
-    cartData: UseCartReturnType;
+    cartData: CartData;
 }
